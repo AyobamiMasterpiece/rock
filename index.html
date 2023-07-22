@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function compute() {
+            let arr=['rock','paper','scissors']
+          let num= Math.trunc( Math.random()*arr.length)
+          console.log(arr[num])
+          return arr[num]
+         
+        }
+        function human() {
+            let h=prompt('choose','')
+       h= h||'paper'
+       h=h.toLowerCase()
+       return h
+        }
+
+     
+
+        function playRound(c,h) {
+            let string=''
+            console.log(c,h)
+            if(c===h){
+string='it is a draw'
+
+
+            }
+
+else if(c=='paper'&&h==='scissors'){
+string='you win'
+}
+else if(c==='rock' && h==='paper'){
+string='you win'
+}
+else if(c==='rock' && h==='scissors'){
+string='you fail'
+}
+else if(c==='scissors' && h==='paper'){
+string='you fail'
+}
+else if(c==='paper' && h==='rock'){
+string='you fail'
+}
+else if(c==='scissors' && h==='rock'){
+string='you fail'
+}
+return string
+        }
+
+
+        function game() {
+            for (let index = 0; index < 5; index++) {
+
+                let c= compute();
+                let h=human()
+let string=playRound(c,h)
+console.log(string)
+
+      
+                
+            }
+        }
+        game()
+      
+    </script>
+</body>
+</html>
