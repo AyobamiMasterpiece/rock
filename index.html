@@ -7,6 +7,26 @@
     <title>Document</title>
 </head>
 <body>
+   <div id="btn">
+    <button id="rock">
+        rock
+    </button>
+    <button id="paper">
+        paper
+    </button>
+    <button id="scissors">
+        scissors
+    </button>
+
+   </div>
+   <p>
+
+   </p>
+   <p>
+
+   </p>
+   <span> computer:</span>
+   <span>me:</span>
     <script>
         function compute() {
             let arr=['rock','paper','scissors']
@@ -26,7 +46,7 @@
 
         function playRound(c,h) {
             let string=''
-            console.log(c,h)
+       
             if(c===h){
 string='it is a draw'
 
@@ -55,19 +75,44 @@ return string
         }
 
 
-        function game() {
-            for (let index = 0; index < 5; index++) {
+       
+       
+       let hs=0
+       let cs=0
+       
+        let p= document.getElementsByTagName('p')[0]
+        let p2= document.getElementsByTagName('p')[1]
 
-                let c= compute();
-                let h=human()
-let string=playRound(c,h)
-console.log(string)
-
-      
-                
-            }
+      let btn= document.getElementById('btn')
+      btn.addEventListener('click',(e)=>{
+        let h=e.target.id
+        let c=compute()
+        let string=playRound(c,h)
+        if(string=='you win'){
+            hs++
         }
-        game()
+        else if(string=='you fail'){
+            cs++
+        }
+        else{
+            hs++
+            cs++
+        }
+        let span1=document.getElementsByTagName('span')[0]
+        let span2=document.getElementsByTagName('span')[1]
+        span1.innerHTML=cs
+        span2.innerHTML=hs
+        p.innerHTML=string
+        if(hs===5){
+            p2.innerHTML='you win'
+        }
+        if(cs===5){
+            p2.innerHTML='you fail'
+        }
+       console.log(string)
+      })
+   
+   
       
     </script>
 </body>
